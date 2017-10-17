@@ -26,7 +26,7 @@
 
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="WifiWizard">
-				<param name="android-package" value="cordova.plugin.dride.wifi.WifiWizard" />
+				<param name="android-package" value="cordova.plugin.dride.wifi" />
 				<param name="onload" value="true" />
 			</feature>
 		</config-file>
