@@ -5,12 +5,6 @@
 	id="cordova-plugin-dride-wifi"
 	version="0.3.0">
 
-    <name>WifiWizard</name>
-    <description>This plugin allows Phonegap applications to manage Wifi connections.</description>
-	<author>Matt Parsons</author>
-	<keywords>phonegap,network,wifi</keywords>
-    <license>Apache 2.0</license>
-
     <js-module src="www/WifiWizard.js" name="WifiWizard">
     	<clobbers target="window.WifiWizard"/>
     </js-module>
@@ -25,7 +19,7 @@
 
 		<config-file target="res/xml/config.xml" parent="/*">
 			<feature name="WifiWizard">
-				<param name="android-package" value="cordova.plugin.dride.wifi.wifiwizard" />
+				<param name="android-package" value="cordova.plugin.dride.wifi.WifiWizard" />
 				<param name="onload" value="true" />
 			</feature>
 		</config-file>
