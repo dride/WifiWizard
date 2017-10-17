@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dride/WifiWizard.git"
+    "url": "git+https://github.com/dride/cordova-plugin-dride-wifi.git"
   },
   "keywords": [
     "phonegap",
@@ -24,7 +24,7 @@
   "author": "Matt Parsons",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/dride/WifiWizard/issues"
+    "url": "https://github.com/dride/cordova-plugin-dride-wifi/issues"
   },
-  "homepage": "https://github.com/dride/WifiWizard#readme"
+  "homepage": "https://github.com/dride/cordova-plugin-dride-wifi#readme"
 }

@@ -4,7 +4,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	id="cordova-plugin-dride-wifi"
 	version="0.3.0">
-
+   <name>WifiWizard</name>
     <js-module src="www/WifiWizard.js" name="WifiWizard">
     	<clobbers target="window.WifiWizard"/>
     </js-module>
