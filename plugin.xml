@@ -31,7 +31,7 @@
 			</feature>
 		</config-file>
 
-	<source-file src="src/android/src/cordova/plugin/dride/wifi/WifiWizard.java" target-dir="src/cordova/plugin/dride/wifi" />
+	<source-file src="src/android/src/cordova/plugin/dride/wifi/WifiWizard.java" target-dir="src/io/dride/wifi" />
     </platform>
 
 	<platform name="ios">
