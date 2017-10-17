@@ -12,7 +12,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.pylonproducts.wifiwizard;
+package cordova.plugin.dride.wifi;
 
 import org.apache.cordova.*;
 import java.util.List;
