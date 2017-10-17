@@ -1,5 +1,5 @@
 {
-  "name": "dride-wifi",
+  "name": "cordova-plugin-dride-wifi",
   "version": "0.3.1",
   "description": "This plugin allows Phonegap applications to manage Wifi connections.",
   "cordova": {
