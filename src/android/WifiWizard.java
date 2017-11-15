@@ -59,7 +59,7 @@ public class WifiWizard extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext)
-                            throws JSONException {
+            throws JSONException {
 
         this.callbackContext = callbackContext;
 
@@ -99,7 +99,8 @@ public class WifiWizard extends CordovaPlugin {
         }
         else if(action.equals(GET_CONNECTED_SSID)) {
             return this.getConnectedSSID(callbackContext);
-        }else if(action.equals(GET_CONNECTED_BSSID)) {
+        }
+        else if(action.equals(GET_CONNECTED_BSSID)) {
             return this.getConnectedBSSID(callbackContext);
         }
         else {
@@ -294,7 +295,7 @@ public class WifiWizard extends CordovaPlugin {
      *    @return    true if network disconnected, false if failed
      */
     private boolean disconnectNetwork(CallbackContext callbackContext, JSONArray data) {
-    Log.d(TAG, "WifiWizard: disconnectNetwork entered.");
+        Log.d(TAG, "WifiWizard: disconnectNetwork entered.");
         if(!validateData(data)) {
             callbackContext.error("WifiWizard: disconnectNetwork invalid data");
             Log.d(TAG, "WifiWizard: disconnectNetwork invalid data");
@@ -366,13 +367,13 @@ public class WifiWizard extends CordovaPlugin {
     }
 
     /**
-       *    This method uses the callbackContext.success method to send a JSONArray
-       *    of the scanned networks.
-       *
-       *    @param    callbackContext        A Cordova callback context
-       *    @param    data                   JSONArray with [0] == JSONObject
-       *    @return    true
-       */
+     *    This method uses the callbackContext.success method to send a JSONArray
+     *    of the scanned networks.
+     *
+     *    @param    callbackContext        A Cordova callback context
+     *    @param    data                   JSONArray with [0] == JSONObject
+     *    @return    true
+     */
     private boolean getScanResults(CallbackContext callbackContext, JSONArray data) {
         List<ScanResult> scanResults = wifiManager.getScanResults();
 
@@ -420,9 +421,9 @@ public class WifiWizard extends CordovaPlugin {
             int level;
 
             if (numLevels == null) {
-              level = scan.level;
+                level = scan.level;
             } else {
-              level = wifiManager.calculateSignalLevel(scan.level, numLevels);
+                level = wifiManager.calculateSignalLevel(scan.level, numLevels);
             }
 
             JSONObject lvl = new JSONObject();
@@ -432,7 +433,7 @@ public class WifiWizard extends CordovaPlugin {
                 lvl.put("BSSID", scan.BSSID);
                 lvl.put("frequency", scan.frequency);
                 lvl.put("capabilities", scan.capabilities);
-               // lvl.put("timestamp", scan.timestamp);
+                // lvl.put("timestamp", scan.timestamp);
                 returnList.put(lvl);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -446,11 +447,11 @@ public class WifiWizard extends CordovaPlugin {
     }
 
     /**
-       *    This method uses the callbackContext.success method. It starts a wifi scanning
-       *
-       *    @param    callbackContext        A Cordova callback context
-       *    @return    true if started was successful
-       */
+     *    This method uses the callbackContext.success method. It starts a wifi scanning
+     *
+     *    @param    callbackContext        A Cordova callback context
+     *    @return    true if started was successful
+     */
     private boolean startScan(CallbackContext callbackContext) {
         if (wifiManager.startScan()) {
             callbackContext.success();
@@ -467,7 +468,7 @@ public class WifiWizard extends CordovaPlugin {
      *
      *    @param    callbackContext        A Cordova callback context
      *    @return    true if SSID found, false if not.
-    */
+     */
     private boolean getConnectedSSID(CallbackContext callbackContext){
         if(!wifiManager.isWifiEnabled()){
             callbackContext.error("Wifi is disabled");
@@ -482,10 +483,10 @@ public class WifiWizard extends CordovaPlugin {
         }
 
         String ssid = info.getSSID();
-        if(ssid == null || ssid.isEmpty()) {
+        if(ssid.isEmpty()) {
             ssid = info.getBSSID();
         }
-        if(ssid == null || ssid.isEmpty() || ssid == "0x"){
+        if(ssid.isEmpty()){
             callbackContext.error("SSID is empty");
             return false;
         }
@@ -493,13 +494,13 @@ public class WifiWizard extends CordovaPlugin {
         callbackContext.success(ssid);
         return true;
     }
-    
-     /**
+
+    /**
      * This method retrieves the BSSID for the currently connected network
      *
      *    @param    callbackContext        A Cordova callback context
      *    @return    true if BSSID found, false if not.
-    */
+     */
     private boolean getConnectedBSSID(CallbackContext callbackContext){
         if(!wifiManager.isWifiEnabled()){
             callbackContext.error("Wifi is disabled");
@@ -513,7 +514,8 @@ public class WifiWizard extends CordovaPlugin {
             return false;
         }
 
-        String  bssid = info.getBSSID();
+        String bssid = info.getBSSID();
+
         if(bssid.isEmpty()){
             callbackContext.error("BSSID is empty");
             return false;
@@ -528,7 +530,7 @@ public class WifiWizard extends CordovaPlugin {
      *
      *    @param    callbackContext        A Cordova callback context
      *    @return    true if WiFi is enabled, fail will be called if not.
-    */
+     */
     private boolean isWifiEnabled(CallbackContext callbackContext) {
         boolean isEnabled = wifiManager.isWifiEnabled();
         callbackContext.success(isEnabled ? "1" : "0");
@@ -563,9 +565,9 @@ public class WifiWizard extends CordovaPlugin {
             Log.d(TAG, "WifiWizard: disconnectNetwork invalid data");
             return false;
         }
-        
+
         String status = "";
-        
+
         try {
             status = data.getString(0);
         }
@@ -574,11 +576,11 @@ public class WifiWizard extends CordovaPlugin {
             Log.d(TAG, e.getMessage());
             return false;
         }
-        
+
         if (wifiManager.setWifiEnabled(status.equals("true"))) {
             callbackContext.success();
             return true;
-        } 
+        }
         else {
             callbackContext.error("Cannot enable wifi");
             return false;

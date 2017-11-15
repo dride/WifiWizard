@@ -22,8 +22,8 @@ var WifiWizard = {
     /**
      * 	This method formats wifi information into an object for use with the
      * 	addNetwork function. Currently only supports
-     *		@param SSID			the SSID of the network enclosed in double quotes
-     *		@param password		the password for the network enclosed in double quotes
+     *	@param SSID			the SSID of the network enclosed in double quotes
+     *	@param password		the password for the network enclosed in double quotes
      * 	@param algorithm	the authentication algorithm
      * 	@return	wifiConfig	a JSON object properly formatted for the plugin.
      */
