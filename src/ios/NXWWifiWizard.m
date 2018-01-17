@@ -41,6 +41,8 @@
     
     [self.commandDelegate sendPluginResult:pluginResult
                                 callbackId:command.callbackId];
+
+	//https://github.com/arsenal942/WifiWizard/commit/a025b79f1c8552eaf50814f2a3667972cab22cb0
 }
 
 - (void)disconnectNetwork:(CDVInvokedUrlCommand*)command {
